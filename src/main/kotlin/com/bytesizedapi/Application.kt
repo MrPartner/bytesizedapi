@@ -14,4 +14,5 @@ fun Application.module() {
     configureSerialization()
     configureSecurity()
     configureRouting()
+    contactUsModule()
 }
