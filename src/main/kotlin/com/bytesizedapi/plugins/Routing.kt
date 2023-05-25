@@ -7,6 +7,8 @@ import io.ktor.server.request.*
 
 fun Application.configureRouting() {
     routing {
+
+        //Requests
         get("/") {
 
             println("URI: ${call.request.uri}") // '/'
@@ -20,6 +22,12 @@ fun Application.configureRouting() {
 
 
             call.respondText("Hello World!")
+        }
+        //URL parameters
+        get("/iphones/{page}"){
+            val pageNumber = call.parameters["page"]
+
+            call.respondText("You are on a page number: $pageNumber")
         }
 
     }
