@@ -1,5 +1,6 @@
 package com.bytesizedapi.plugins
 
+import com.bytesizedapi.UserInfo
 import io.ktor.server.routing.*
 import io.ktor.server.response.*
 import io.ktor.server.application.*
@@ -24,10 +25,16 @@ fun Application.configureRouting() {
             call.respondText("Hello World!")
         }
         //URL parameters
-        get("/iphones/{page}"){
+        get("/iphones/{page}") {
             val pageNumber = call.parameters["page"]
 
             call.respondText("You are on a page number: $pageNumber")
+        }
+
+        post("/login") {
+            val userInfo = call.receive<UserInfo>()
+            println(userInfo)
+            call.respondText("Everything working")
         }
 
     }
