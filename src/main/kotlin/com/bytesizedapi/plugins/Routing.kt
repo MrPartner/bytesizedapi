@@ -67,11 +67,11 @@ fun Application.configureRouting() {
         }
 
         get("/fileOpen"){
-            val file = File("files/lifecycle.png")
+            val file = File("files/IntelliJIDEA_ReferenceCard.pdf")
             call.response.header(
                 HttpHeaders.ContentDisposition,
                 ContentDisposition.Inline.withParameter(
-                    ContentDisposition.Parameters.FileName, "openImage.png"
+                    ContentDisposition.Parameters.FileName, "openPDF.pdf"
                 ).toString()
             )
             call.respondFile(file)
